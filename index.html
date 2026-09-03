@@ -64,13 +64,12 @@
 </style>
 
 <script>
-window.addEventListener("load", function () {
-  setTimeout(function () {
+document.getElementById("start-app").addEventListener("click", function () {
     const splash = document.getElementById("app-splash");
+
     if (splash) {
-      splash.classList.add("hide");
+        splash.classList.add("hide");
     }
-  }, 1800);
 });
 </script>
   <script src="app.js"></script>
