@@ -9,6 +9,9 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
+  <div id="app-splash">
+  <img src="splash-1080x1920.png" alt="MONITORING WORK">
+</div>
   <div class="app">
     <header class="topbar">
       <div class="menu">☰</div>
@@ -27,7 +30,44 @@
       <button data-page="settings" class="nav-item"><span>⚙</span><small>Pengaturan</small></button>
     </nav>
   </div>
+<style>
+#app-splash {
+  position: fixed;
+  inset: 0;
+  z-index: 99999;
+  background: #35106b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity 0.6s ease;
+}
 
+#app-splash img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+#app-splash.hide {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+</style>
+
+<script>
+window.addEventListener("load", function () {
+  setTimeout(function () {
+    const splash = document.getElementById("app-splash");
+    if (splash) {
+      splash.classList.add("hide");
+    }
+  }, 1800);
+});
+</script>
   <script src="app.js"></script>
 </body>
 </html>
