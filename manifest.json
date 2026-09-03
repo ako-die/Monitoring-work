@@ -1,0 +1,9 @@
+{
+  "name": "MONITORING WORK",
+  "short_name": "Monitoring",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "background_color": "#35106b",
+  "theme_color": "#35106b",
+  "icons": []
+}
