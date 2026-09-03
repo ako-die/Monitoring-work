@@ -11,11 +11,8 @@
 <body>
   <div id="app-splash">
     <img src="splash-1080x1920.png" alt="Monitoring Work">
-
-    <div class="splash-bottom">
-        <button id="start-app">MULAI</button>
-        <div class="created-by">Created by dee</div>
-    </div>
+    <button id="start-app" aria-label="Mulai aplikasi"></button>
+</div>
 </div>
   <div class="app">
     <header class="topbar">
@@ -55,7 +52,18 @@
   height: 100%;
   object-fit: cover;
 }
-
+#start-app {
+    position: absolute;
+    left: 10%;
+    bottom: 13%;
+    width: 80%;
+    height: 13%;
+    background: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    z-index: 100000;
+}
 #app-splash.hide {
   opacity: 0;
   visibility: hidden;
