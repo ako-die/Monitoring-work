@@ -401,3 +401,91 @@ textarea{min-height:80px;resize:vertical}
     font-size: 10.5px;
   }
 }
+
+/* =====================================================
+   DAFTAR PEKERJAAN
+   ===================================================== */
+
+.job-form {
+  padding: 17px;
+  border-radius: 18px;
+}
+
+.job-form b {
+  display: block;
+  color: var(--purple);
+  font-size: 17px;
+  margin-bottom: 4px;
+}
+
+.job-form .small-muted {
+  margin-bottom: 12px;
+}
+
+.job-input-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.job-input-row input {
+  flex: 1;
+  min-width: 0;
+  height: 43px;
+}
+
+.job-input-row .btn {
+  height: 43px;
+  padding: 0 14px;
+  white-space: nowrap;
+}
+
+.job-heading {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #fff;
+  margin: 5px 2px 9px;
+}
+
+.job-heading b {
+  font-size: 16px;
+}
+
+.job-heading span {
+  font-size: 11px;
+  opacity: .8;
+}
+
+.job-item {
+  min-height: 64px;
+  padding: 12px 13px;
+  border-radius: 15px;
+  margin-bottom: 9px;
+}
+
+.job-item .num {
+  width: 36px;
+  height: 36px;
+  flex-shrink: 0;
+}
+
+.job-item .task-main b {
+  font-size: 14px;
+  line-height: 1.35;
+}
+
+.job-item .icon-btn {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+  background: #fff0f0;
+  font-size: 18px;
+}
+
+.job-form input:focus {
+  outline: 2px solid #b99ae8;
+  border-color: var(--purple2);
+}
