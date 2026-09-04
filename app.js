@@ -17,7 +17,7 @@ function render(){
 }
 
 function home(){return `
-  <div class="section-title">MONITORING WORK</div>
+  
   <div class="card"><b>Selamat datang 👋</b><p class="small-muted">Kelola pekerjaan dan kegiatan harian dengan lebih teratur.</p></div>
   <div class="menu-grid">
     <button class="menu-card" data-go="jobs"><div class="icon">📋</div><h3>1. Daftar Pekerjaan</h3><p>Kelola daftar semua pekerjaan: tambah, simpan, dan hapus.</p></button>
