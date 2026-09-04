@@ -104,7 +104,12 @@ function settings(){return `<div class="section-title">Pengaturan</div><div clas
 
 function bind(){
   document.querySelectorAll("[data-page]").forEach(b=>b.onclick=()=>{page=b.dataset.page;render()});
-  document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{page="monitoring"; const go=b.dataset.go; render(); setTimeout(()=>openSub(go),0)});
+  document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{
+  page="";
+  const go=b.dataset.go;
+  render();
+  setTimeout(()=>openSub(go),0)
+});
   document.querySelectorAll("[data-del-job]").forEach(b=>b.onclick=()=>{data.jobs.splice(+b.dataset.delJob,1);save();renderSub("jobs")});
   document.querySelectorAll("[data-del-act]").forEach(b=>b.onclick=()=>{data.activities.splice(+b.dataset.delAct,1);save();renderSub("activities")});
   document.querySelector("[data-add-job]")?.addEventListener("click",()=>{
