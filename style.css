@@ -44,3 +44,187 @@ textarea{min-height:80px;resize:vertical}
 .reminder{background:#f0e8ff;color:#4b16a0;border-left:5px solid var(--green);font-size:13px}
 .small-muted{font-size:12px;color:#777}
 @media(max-width:480px){.app{max-width:none}.fab{right:20px}}
+
+/* =====================================================
+   HOME UI - MONITORING WORK
+   Perapihan tampilan Home
+   ===================================================== */
+
+/* Area isi Home */
+#content {
+  padding: 18px 16px 24px;
+}
+
+/* Judul Home */
+#content > .section-title {
+  font-size: 21px;
+  font-weight: 800;
+  letter-spacing: .3px;
+  margin: 4px 2px 14px;
+}
+
+/* Kartu Selamat Datang */
+#content > .section-title + .card {
+  position: relative;
+  padding: 20px 18px;
+  margin-bottom: 16px;
+  border-radius: 18px;
+  background: rgba(255,255,255,.98);
+  box-shadow: 0 7px 20px rgba(25,5,61,.20);
+  overflow: hidden;
+}
+
+/* Garis aksen di kiri kartu welcome */
+#content > .section-title + .card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 5px;
+  background: var(--green);
+}
+
+/* Tulisan Selamat datang */
+#content > .section-title + .card b {
+  display: block;
+  font-size: 19px;
+  color: var(--purple);
+  margin-bottom: 7px;
+}
+
+/* Deskripsi welcome */
+#content > .section-title + .card p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: 13px;
+  color: #666;
+}
+
+/* Grid menu Home */
+#content > .menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+  margin-top: 0;
+}
+
+/* Kartu menu */
+#content > .menu-grid .menu-card {
+  position: relative;
+  min-height: 108px;
+  padding: 18px 52px 18px 18px;
+  border-radius: 19px;
+  text-align: left;
+  background: #fff;
+  box-shadow: 0 7px 18px rgba(25,5,61,.20);
+  border: 1px solid rgba(76,22,160,.06);
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+/* Efek tekan */
+#content > .menu-grid .menu-card:active {
+  transform: scale(.98);
+  box-shadow: 0 3px 10px rgba(25,5,61,.18);
+}
+
+/* Ikon menu */
+#content > .menu-grid .menu-card .icon {
+  width: 58px;
+  height: 58px;
+  display: grid;
+  place-items: center;
+  margin: 0 0 11px;
+  border-radius: 17px;
+  background: #f0e8ff;
+  font-size: 32px;
+  line-height: 1;
+}
+
+/* Ikon kartu 1 */
+#content > .menu-grid .menu-card:nth-child(1) .icon {
+  background: #eee5ff;
+}
+
+/* Ikon kartu 2 */
+#content > .menu-grid .menu-card:nth-child(2) .icon {
+  background: #e8f8ed;
+}
+
+/* Ikon kartu 3 */
+#content > .menu-grid .menu-card:nth-child(3) .icon {
+  background: #fff2df;
+}
+
+/* Judul kartu */
+#content > .menu-grid .menu-card h3 {
+  margin: 0;
+  font-size: 17px;
+  font-weight: 800;
+  color: var(--green);
+  line-height: 1.25;
+}
+
+/* Deskripsi kartu */
+#content > .menu-grid .menu-card p {
+  margin: 6px 0 0;
+  font-size: 12.5px;
+  line-height: 1.45;
+  color: #666;
+}
+
+/* Tanda panah kanan */
+#content > .menu-grid .menu-card::after {
+  content: "›";
+  position: absolute;
+  right: 18px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #f1eaff;
+  color: var(--purple2);
+  font-size: 27px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+/* Nomor judul menu dibuat lebih rapi */
+#content > .menu-grid .menu-card h3 {
+  letter-spacing: .1px;
+}
+
+/* Bottom navigation */
+.bottom-nav {
+  height: 78px;
+  border-top: 1px solid rgba(255,255,255,.08);
+  box-shadow: 0 -5px 18px rgba(0,0,0,.16);
+}
+
+/* Ikon bottom navigation */
+.bottom-nav .nav-item span {
+  font-size: 27px;
+  line-height: 1;
+}
+
+/* Tulisan bottom navigation */
+.bottom-nav .nav-item small {
+  font-size: 11px;
+  font-weight: 600;
+}
+
+/* Home aktif */
+.bottom-nav .nav-item.active {
+  color: #18e35f;
+}
+
+/* Desktop / layar lebih besar */
+@media (min-width: 481px) {
+  #content > .menu-grid .menu-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 22px rgba(25,5,61,.22);
+  }
+}
