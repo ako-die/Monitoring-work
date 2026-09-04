@@ -126,11 +126,45 @@ function bind(){
   save();
   renderSub("jobs");
 });
-  document.querySelector("[data-save-act]")?.addEventListener("click",()=>{entListener("click",()=>{const name=prompt("Nama pekerjaan:");if(name?.trim()){data.jobs.push(name.trim());save();renderSub("jobs")}});
-    const name=document.getElementById("actName").value.trim(); if(!name){alert("Nama kegiatan wajib diisi.");return}
-    data.activities.push({date:document.getElementById("actDate").value,name,deadline:document.getElementById("actDeadline").value, note:document.getElementById("actNote").value.trim(), alarm:document.getElementById("actAlarm").value,done:false});
-    save(); alert("Kegiatan berhasil disimpan."); renderSub("activities");
+  document.querySelector("[data-save-act]")?.addEventListener("click",()=>{
+  const dateEl = document.getElementById("actDate");
+  const nameEl = document.getElementById("actName");
+  const deadlineEl = document.getElementById("actDeadline");
+  const noteEl = document.getElementById("actNote");
+  const alarmEl = document.getElementById("actAlarm");
+
+  const date = dateEl?.value || "";
+  const name = nameEl?.value.trim() || "";
+  const deadline = deadlineEl?.value || "";
+  const note = noteEl?.value.trim() || "";
+  const alarm = alarmEl?.value || "";
+
+  if (!date) {
+    alert("Tanggal kegiatan wajib diisi.");
+    return;
+  }
+
+  if (!name) {
+    alert("Nama kegiatan wajib diisi.");
+    nameEl?.focus();
+    return;
+  }
+
+  data.activities.push({
+    date: date,
+    name: name,
+    deadline: deadline,
+    note: note,
+    alarm: alarm,
+    done: false
   });
+
+  save();
+
+  alert("Kegiatan berhasil disimpan.");
+
+  renderSub("activities");
+});
   document.getElementById("checkDate")?.addEventListener("change",renderSubChecklist);
   document.querySelectorAll("[data-check]").forEach(x=>x.onchange=()=>{data.activities[+x.dataset.check].done=x.checked;save();renderSubChecklist()});
   document.querySelector("[data-reset]")?.addEventListener("click",()=>{if(confirm("Hapus semua data?")){data={jobs:[],activities:[]};save();render()}});
