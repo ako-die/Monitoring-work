@@ -27,8 +27,55 @@ function home(){return `
 
 function jobs(){return `
   <div class="section-title">Daftar Pekerjaan</div>
-  <div id="jobList">${data.jobs.length?data.jobs.map((j,i)=>`<div class="card task"><div class="num">${i+1}</div><div class="task-main"><b>${esc(j)}</b></div><button class="icon-btn" data-del-job="${i}">🗑️</button></div>`).join(""):'<div class="card empty">Belum ada pekerjaan.</div>'}</div>
-  <button class="fab" data-add-job>+</button>`}
+
+  <div class="card job-form">
+    <b>Tambah Pekerjaan</b>
+    <p class="small-muted">Masukkan pekerjaan yang ingin dipantau.</p>
+
+    <div class="job-input-row">
+      <input
+        id="jobName"
+        type="text"
+        placeholder="Contoh: Follow Up Nasabah"
+        autocomplete="off"
+      >
+      <button class="btn green" data-add-job>Tambah</button>
+    </div>
+  </div>
+
+  <div class="job-heading">
+    <b>Daftar Pekerjaan</b>
+    <span>${data.jobs.length} pekerjaan</span>
+  </div>
+
+  <div id="jobList">
+    ${
+      data.jobs.length
+      ?
+      data.jobs.map((j,i)=>`
+        <div class="card task job-item">
+          <div class="num">${i+1}</div>
+
+          <div class="task-main">
+            <b>${esc(j)}</b>
+          </div>
+
+          <button
+            class="icon-btn"
+            data-del-job="${i}"
+            aria-label="Hapus pekerjaan"
+          >🗑️</button>
+        </div>
+      `).join("")
+      :
+      `<div class="card empty">
+        📋<br>
+        Belum ada pekerjaan.<br>
+        <span class="small-muted">Tambahkan pekerjaan pertama Anda.</span>
+      </div>`
+    }
+  </div>
+`}
 
 function activities(){return `
   <div class="section-title">Daftar Kegiatan</div>
@@ -60,8 +107,21 @@ function bind(){
   document.querySelectorAll("[data-go]").forEach(b=>b.onclick=()=>{page="monitoring"; const go=b.dataset.go; render(); setTimeout(()=>openSub(go),0)});
   document.querySelectorAll("[data-del-job]").forEach(b=>b.onclick=()=>{data.jobs.splice(+b.dataset.delJob,1);save();renderSub("jobs")});
   document.querySelectorAll("[data-del-act]").forEach(b=>b.onclick=()=>{data.activities.splice(+b.dataset.delAct,1);save();renderSub("activities")});
-  document.querySelector("[data-add-job]")?.addEventListener("click",()=>{const name=prompt("Nama pekerjaan:");if(name?.trim()){data.jobs.push(name.trim());save();renderSub("jobs")}});
-  document.querySelector("[data-save-act]")?.addEventListener("click",()=>{
+  document.querySelector("[data-add-job]")?.addEventListener("click",()=>{
+  const input=document.getElementById("jobName");
+  const name=input?.value.trim();
+
+  if(!name){
+    alert("Nama pekerjaan wajib diisi.");
+    input?.focus();
+    return;
+  }
+
+  data.jobs.push(name);
+  save();
+  renderSub("jobs");
+});
+  document.querySelector("[data-save-act]")?.addEventListener("click",()=>{entListener("click",()=>{const name=prompt("Nama pekerjaan:");if(name?.trim()){data.jobs.push(name.trim());save();renderSub("jobs")}});
     const name=document.getElementById("actName").value.trim(); if(!name){alert("Nama kegiatan wajib diisi.");return}
     data.activities.push({date:document.getElementById("actDate").value,name,deadline:document.getElementById("actDeadline").value, note:document.getElementById("actNote").value.trim(), alarm:document.getElementById("actAlarm").value,done:false});
     save(); alert("Kegiatan berhasil disimpan."); renderSub("activities");
