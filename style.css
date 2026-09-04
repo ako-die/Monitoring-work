@@ -233,3 +233,171 @@ textarea{min-height:80px;resize:vertical}
 #content > .section-title {
     display: none;
 }
+
+. /* =====================================================
+   HOME COMPACT CARD - MONITORING WORK
+   ===================================================== */
+
+/* Area Home */
+#content {
+  padding: 12px 14px 18px;
+}
+
+/* Kartu Selamat Datang */
+#content > .card:first-child {
+  min-height: 100px;
+  padding: 17px 18px;
+  margin-bottom: 12px;
+  border-radius: 18px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-left: 5px solid var(--green);
+}
+
+/* Judul Selamat Datang */
+#content > .card:first-child b {
+  display: block;
+  color: var(--purple);
+  font-size: 18px;
+  margin-bottom: 6px;
+}
+
+/* Deskripsi Selamat Datang */
+#content > .card:first-child .small-muted {
+  font-size: 12.5px;
+  line-height: 1.4;
+  color: #666;
+}
+
+/* Jarak menu */
+.menu-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 11px;
+  margin-top: 0;
+}
+
+/* Kartu menu dibuat lebih pendek */
+.menu-card {
+  position: relative;
+  height: 128px;
+  min-height: 128px;
+  padding: 14px 55px 14px 16px;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 5px 14px #19053d30;
+  overflow: hidden;
+}
+
+/* Ikon */
+.menu-card .icon {
+  width: 48px;
+  height: 48px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #eee5ff;
+  font-size: 27px;
+  margin-bottom: 7px;
+}
+
+/* Warna kotak ikon */
+.menu-card:nth-child(1) .icon {
+  background: #eee5ff;
+}
+
+.menu-card:nth-child(2) .icon {
+  background: #e8f8ed;
+}
+
+.menu-card:nth-child(3) .icon {
+  background: #fff0dc;
+}
+
+/* Judul menu */
+.menu-card h3 {
+  margin: 0;
+  color: var(--green);
+  font-size: 16px;
+  line-height: 1.2;
+  font-weight: 800;
+}
+
+/* Deskripsi */
+.menu-card p {
+  margin: 5px 0 0;
+  color: #666;
+  font-size: 11.5px;
+  line-height: 1.3;
+}
+
+/* Tombol panah */
+.menu-card::after {
+  content: "›";
+  position: absolute;
+  right: 14px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: #f0e8ff;
+  color: var(--purple2);
+  display: grid;
+  place-items: center;
+  font-size: 27px;
+  font-weight: 700;
+}
+
+/* Bottom navigation */
+.bottom-nav {
+  height: 74px;
+}
+
+/* Ikon bottom nav */
+.nav-item span {
+  font-size: 25px;
+}
+
+/* Tulisan bottom nav */
+.nav-item small {
+  font-size: 11px;
+}
+
+/* HP kecil */
+@media (max-width: 380px) {
+
+  #content {
+    padding: 10px 12px 15px;
+  }
+
+  #content > .card:first-child {
+    min-height: 90px;
+    padding: 14px 16px;
+  }
+
+  #content > .card:first-child b {
+    font-size: 16px;
+  }
+
+  .menu-card {
+    height: 119px;
+    min-height: 119px;
+    padding: 12px 52px 12px 14px;
+  }
+
+  .menu-card .icon {
+    width: 43px;
+    height: 43px;
+    font-size: 24px;
+  }
+
+  .menu-card h3 {
+    font-size: 15px;
+  }
+
+  .menu-card p {
+    font-size: 10.5px;
+  }
+}
