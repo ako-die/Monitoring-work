@@ -228,3 +228,8 @@ textarea{min-height:80px;resize:vertical}
     box-shadow: 0 10px 22px rgba(25,5,61,.22);
   }
 }
+
+/* Hilangkan judul MONITORING WORK yang berulang di Home */
+#content > .section-title {
+    display: none;
+}
